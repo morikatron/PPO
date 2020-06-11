@@ -1,0 +1,226 @@
+Layer dense is casting an input tensor from dtype float64 to the layer's dtype of float32, which is new behavior in TensorFlow 2.  The layer has dtype float32 because it's dtype defaults to floatx.
+
+If you intended to run this layer in float32, you can safely ignore this warning. If in doubt, this warning is likely only an issue if you are porting a TensorFlow 1.X model to TensorFlow 2.
+
+To change all layers to have dtype float64 by default, call `tf.keras.backend.set_floatx('float64')`. To change just this layer, pass dtype='float64' to the layer constructor. If you are the author of this layer, you can disable autocasting by passing autocast=False to the base Layer constructor.
+
+
+num episodes: 5
+loss: 0.06414816528558731
+policy loss: -0.02506488561630249
+value loss: 0.19201508164405823
+entropy loss: 0.679448664188385
+kl: -5.27258962392807e-05
+frac: 0.0
+mean 100 episode reward: 1.18
+max 100 episode reward: 32
+min 100 episode reward: 0
+
+num episodes: 152
+loss: -0.17806723713874817
+policy loss: -0.1729067862033844
+value loss: 0.0010993333999067545
+entropy loss: 0.5710119009017944
+kl: -0.00027517706621438265
+frac: 0.0
+mean 100 episode reward: 114.87
+max 100 episode reward: 500
+min 100 episode reward: 10
+
+num episodes: 188
+loss: 0.16056685149669647
+policy loss: 0.16496379673480988
+value loss: 0.0021676868200302124
+entropy loss: 0.5480786561965942
+kl: 4.1365157812833786e-05
+frac: 0.09375
+mean 100 episode reward: 225.07
+max 100 episode reward: 500
+min 100 episode reward: 29
+
+num episodes: 227
+loss: -0.3999849855899811
+policy loss: -0.3948512375354767
+value loss: 0.0009979924652725458
+entropy loss: 0.5632771849632263
+kl: 2.793152816593647e-05
+frac: 0.0
+mean 100 episode reward: 309.78
+max 100 episode reward: 500
+min 100 episode reward: 29
+
+num episodes: 256
+loss: 0.010370314121246338
+policy loss: 0.015403546392917633
+value loss: 0.0008905536960810423
+entropy loss: 0.5478508472442627
+kl: -0.00017147627659142017
+frac: 0.0
+mean 100 episode reward: 375.07
+max 100 episode reward: 500
+min 100 episode reward: 69
+
+num episodes: 282
+loss: 0.0563259981572628
+policy loss: 0.030516520142555237
+value loss: 0.06251396238803864
+entropy loss: 0.5447502136230469
+kl: 0.0004118869546800852
+frac: 0.0625
+mean 100 episode reward: 412.32
+max 100 episode reward: 500
+min 100 episode reward: 69
+
+num episodes: 310
+loss: -0.01925676316022873
+policy loss: -0.015036333352327347
+value loss: 0.00020560351549647748
+entropy loss: 0.43232327699661255
+kl: 6.240690709091723e-05
+frac: 0.0625
+mean 100 episode reward: 444.67
+max 100 episode reward: 500
+min 100 episode reward: 13
+
+num episodes: 336
+loss: 0.0010141811799257994
+policy loss: -0.016166139394044876
+value loss: 0.04157581180334091
+entropy loss: 0.36075854301452637
+kl: -0.00032476504566147923
+frac: 0.21875
+mean 100 episode reward: 477.53
+max 100 episode reward: 500
+min 100 episode reward: 13
+
+num episodes: 361
+loss: 0.14427030086517334
+policy loss: 0.14736193418502808
+value loss: 0.0003693284816108644
+entropy loss: 0.32762986421585083
+kl: 0.0005189194926060736
+frac: 0.0
+mean 100 episode reward: 485.7
+max 100 episode reward: 500
+min 100 episode reward: 13
+
+num episodes: 387
+loss: 0.04076972231268883
+policy loss: 0.04260740056633949
+value loss: 0.001190269598737359
+entropy loss: 0.24328120052814484
+kl: 0.00013250492338556796
+frac: 0.0625
+mean 100 episode reward: 496.3
+max 100 episode reward: 500
+min 100 episode reward: 325
+
+num episodes: 412
+loss: 0.06621689349412918
+policy loss: 0.06901593506336212
+value loss: 0.0005798405036330223
+entropy loss: 0.3088955283164978
+kl: -0.0007909189444035292
+frac: 0.0
+mean 100 episode reward: 499.96
+max 100 episode reward: 500
+min 100 episode reward: 496
+
+num episodes: 438
+loss: 0.10673844814300537
+policy loss: 0.10952131450176239
+value loss: 0.00011104362783953547
+entropy loss: 0.2838384509086609
+kl: -0.00035844166995957494
+frac: 0.1875
+mean 100 episode reward: 500.0
+max 100 episode reward: 500
+min 100 episode reward: 500
+
+num episodes: 564
+loss: 0.04832080006599426
+policy loss: 0.05032012611627579
+value loss: 0.0025152829475700855
+entropy loss: 0.32569679617881775
+kl: -0.0014941454865038395
+frac: 0.0
+mean 100 episode reward: 44.75
+max 100 episode reward: 357
+min 100 episode reward: 8
+
+num episodes: 623
+loss: -0.1579686403274536
+policy loss: -0.1535094678401947
+value loss: 0.0003575495211407542
+entropy loss: 0.4637947678565979
+kl: -0.00041046622209250927
+frac: 0.03125
+mean 100 episode reward: 152.9
+max 100 episode reward: 478
+min 100 episode reward: 9
+
+num episodes: 669
+loss: -0.08147377520799637
+policy loss: -0.07669946551322937
+value loss: 0.00019210169557482004
+entropy loss: 0.4870366156101227
+kl: 0.00020513671915978193
+frac: 0.0
+mean 100 episode reward: 247.88
+max 100 episode reward: 478
+min 100 episode reward: 12
+
+num episodes: 696
+loss: 0.21147820353507996
+policy loss: 0.21578434109687805
+value loss: 0.0007984770927578211
+entropy loss: 0.470536470413208
+kl: 0.00021490780636668205
+frac: 0.03125
+mean 100 episode reward: 340.26
+max 100 episode reward: 500
+min 100 episode reward: 12
+
+num episodes: 722
+loss: 0.32204827666282654
+policy loss: 0.31992673873901367
+value loss: 0.011378765106201172
+entropy loss: 0.35678526759147644
+kl: -0.0015518097206950188
+frac: 0.03125
+mean 100 episode reward: 390.56
+max 100 episode reward: 500
+min 100 episode reward: 12
+
+num episodes: 747
+loss: 0.249151811003685
+policy loss: 0.2538008391857147
+value loss: 0.00023648451315239072
+entropy loss: 0.4767288565635681
+kl: 0.0008118401747196913
+frac: 0.0625
+mean 100 episode reward: 452.39
+max 100 episode reward: 500
+min 100 episode reward: 13
+
+num episodes: 774
+loss: -0.016345012933015823
+policy loss: -0.02087794616818428
+value loss: 0.01666218414902687
+entropy loss: 0.379815936088562
+kl: 0.0002700098848436028
+frac: 0.0
+mean 100 episode reward: 490.96
+max 100 episode reward: 500
+min 100 episode reward: 12
+
+num episodes: 802
+loss: -0.07085364311933517
+policy loss: -0.0681210607290268
+value loss: 0.0008157203556038439
+entropy loss: 0.31404411792755127
+kl: 0.0004300039727240801
+frac: 0.25
+mean 100 episode reward: 480.47
+max 100 episode reward: 500
+min 100 episode reward: 11
