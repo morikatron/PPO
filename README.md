@@ -28,3 +28,6 @@ https://arxiv.org/pdf/1506.02438.pdf
  $ cd PPO
  $ python algo/run.py
  ```
+ ## Performance Example
+ ![CartPole-v1](https://github.com/morikatron/PPO/blob/master/ppo_result.png)
+
