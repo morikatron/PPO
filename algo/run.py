@@ -4,7 +4,6 @@ from collections import deque
 from tqdm import tqdm
 import gym
 import numpy as np
-from scipy import signal
 import tensorflow as tf
 
 from util import set_global_seeds
@@ -108,21 +107,6 @@ class Memory:
             self.gae[t] = self.deltas[t] + (1 - self.dones[t]) * (self._hparams.gamma * self._hparams.lambda_) * self.gae[t + 1]
         self.discounted_rew_sum = self.gae[:-1] + self.values[:-1]
         self.gae = (self.gae - np.mean(self.gae[:-1])) / (np.std(self.gae[:-1]) + 1e-8)  # 正規化をしておきます。
-        """
-        # scipyのlfilterを使うとfor文を省略してgaeを計算できますが、エピソードごとに区切る必要があります。
-        idx_start = 0
-        for idx_done in np.where(self.dones)[0]:
-            deltas_sliced = self.deltas[idx_start:idx_done+1]
-            gae = signal.lfilter([1], [1, float(-self.gamma * self.lambda_)], deltas_sliced[::-1], axis=0)[::-1]
-            self.gae[idx_start:idx_done+1] = gae
-            idx_start = idx_done + 1
-        deltas_sliced = self.deltas[idx_start:]
-        gae = signal.lfilter([1], [1, float(-self.gamma * self.lambda_)], deltas_sliced[::-1], axis=0)[::-1]
-        self.gae[idx_start:] = gae
-        self.discounted_rew_sum = self.gae[:-1] + self.values[:-1]
-        self.gae = (self.gae - np.mean(self.gae[:-1]) / (np.std(self.gae[:-1]) + 1e-8))
-        return
-        """
         return
 
     def sample(self, idxes):
