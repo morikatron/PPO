@@ -31,5 +31,3 @@ https://arxiv.org/pdf/1506.02438.pdf
  $ cd ppo
  $ python run.py
  ```
-## Performance Example
-
