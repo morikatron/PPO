@@ -26,6 +26,6 @@ https://arxiv.org/pdf/1506.02438.pdf
  ```
   - change directory and run 
  ```
- $ cd ppo
+ $ cd PPO
  $ python run.py
  ```
