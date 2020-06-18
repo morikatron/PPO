@@ -3,7 +3,7 @@ Proximal Policy Optimization and Generalized Advantage Estimation implementation
 This implementation only supports CartPole environment(OpenAI gym).  
 
 このリポジトリは強化学習アルゴリズムProximal Policy Optimization及びGeneralized Advantage EstimationをTensorflow2で実装したものです。（学習環境はCartPoleにのみ対応しています。）  
-PPOについて解説したブログはこちらになります。  
+PPOについて解説したブログはこちらになります（2020年6月29日10:00より公開）  
 https://tech.morikatron.ai/entry/2020/06/29/100000
 
 ## Relevant Papers
