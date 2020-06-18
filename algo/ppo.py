@@ -39,7 +39,7 @@ class PPO(tf.Module):
         :param pi_old: actionを選択する現在の確率
         :param advantage: GAE
         :param rew_sum: valueのターゲット
-        :return:
+        :return: 学習時の損失
         """
         # GradientTapeコンテクスト内で行われる計算は勾配を記録することが出来ます。
         with tf.GradientTape() as tape:

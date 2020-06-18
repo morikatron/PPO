@@ -71,7 +71,7 @@ class Memory:
         self.deltas  = np.zeros((self.size,   1))
         self.discounted_rew_sum = np.zeros((self.size, 1))
         self.gae = np.zeros((self.size+1, 1))
-        self.i = 0  # サンプルをメモリに保存するためのポインタの役割を果たします
+        self.sample_i = 0  # サンプルをメモリに保存するためのポインタの役割を果たします
 
     def __len__(self):
         return self.size
@@ -81,26 +81,23 @@ class Memory:
         サンプルをメモリに保存する時点では、 1ステップ先の状態価値はまだ不明なのでdeltaのみ1ステップ分遅延させて保存します。
         その都合上メモリのサイズより1回分多くaddが呼ばれますが、最後のaddではdeltaのみ保存するようにします。
         """
-        if self.i < len(self.obses):
-            self.obses[self.i] = obs
-            self.actions[self.i] = action
-            self.rewards[self.i] = reward
-            self.dones[self.i] = done
-            self.values[self.i] = value
-            self.policy[self.i] = policy
+        if self.sample_i < len(self.obses):
+            self.obses[self.sample_i] = obs
+            self.actions[self.sample_i] = action
+            self.rewards[self.sample_i] = reward
+            self.dones[self.sample_i] = done
+            self.values[self.sample_i] = value
+            self.policy[self.sample_i] = policy
 
-        if self.i > 0:
+        if self.sample_i > 0:
             # ステップtでエピソードが終了していた場合、V(t+1)は次のエピソードの最初の状態価値なのでdeltaを計算する際にエピソードをまたがないようにV(t+1)は0とします。(エピソード終了後に得られる報酬は0なので状態価値も0です。)
-            self.deltas[self.i - 1] = self.rewards[self.i - 1] + self._hparams.gamma * value * (1 - self.dones[self.i - 1]) - self.values[self.i - 1]
-        self.i += 1
+            self.deltas[self.sample_i - 1] = self.rewards[self.sample_i - 1] + self._hparams.gamma * value * (1 - self.dones[self.sample_i - 1]) - self.values[self.sample_i - 1]
+        self.sample_i += 1
 
     def compute_gae(self):
         """
         Generalized Advantage Estimatorを後ろからさかのぼって計算します。
         最後の状態のGAEはdeltaと等しく、それ以前は次の状態のgaeをgamma * lambdaで割り引いた値にdeltaの値を足したものになります。
-        ただし、ここでもエピソードをまたいで計算しないようにgae
-        openAI spinning upやRLlibではscipyのlfilterを使ったgaeの計算が使われていますが、
-        :return:
         """
         self.gae[-1] = self.deltas[-1]
         for t in reversed(range(self.size-1)):
@@ -118,7 +115,7 @@ class Memory:
         return batch_obs, batch_act, batch_adv, batch_sum, batch_pi
 
     def reset(self):
-        self.i = 0
+        self.sample_i = 0
         self.obses = np.zeros_like(self.obses)
         self.actions = np.zeros_like(self.actions)
         self.rewards = np.zeros_like(self.rewards)
