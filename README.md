@@ -10,7 +10,7 @@ https://tech.morikatron.ai/entry/2020/06/29/100000
  - Proximal Policy Optimization Algorithms, Schulman et al. 2017  
 https://arxiv.org/abs/1707.06347
  - High-Dimensional Continuous Control Using Generalized Advantage Estimation, Schulman et al. 2016  
-https://arxiv.org/pdf/1506.02438.pdf
+https://arxiv.org/abs/1506.02438
 
 ## Requirements
  - Python3
