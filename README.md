@@ -14,8 +14,6 @@ https://arxiv.org/abs/1506.02438
 
 ## Requirements
  - Python3
- 
-## Dependencies
  - tensorflow2
  - gym
  - tqdm
